@@ -75,12 +75,12 @@ public class LinkedListDeletion {
         }
 
         void deletion(){
-            int data,n,m,p;
+            int n,m,p;
             Scanner sc = new Scanner(System.in);
 
             do {
                 if (head == null){
-                    System.out.println("LL is emty");
+                    System.out.println("LL is empty");
                 }
                 else {
                     System.out.println("Enter 1 to delete the item from beginning. 2 to delete the item from the emd , 3 to delete the ite at specific position");
