@@ -33,7 +33,7 @@ public class InsertionTraverser {
             }else {
                 newNode.next = head;
                 head = newNode;
-                tail.next = head;
+                tail.next = head; // Joining of Tail to Head
             }
             System.out.println("Press 1 if you want to enter more data");
             n = sc.nextInt();

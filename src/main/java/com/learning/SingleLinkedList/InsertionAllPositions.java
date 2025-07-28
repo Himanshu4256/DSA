@@ -42,7 +42,7 @@ public class InsertionAllPositions {
                         break;
                     case 3:
                         int p;
-                        System.out.println("Enter the position for deletion");
+                        System.out.println("Enter the position for insertion");
                         p = sc.nextInt();
                         Node temp1 = head;
                         for (int i = 0; i < (p-1); i++) {
