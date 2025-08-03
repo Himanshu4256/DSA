@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class Cll_Deletion {
 
-    static class Node{
+    static class Node {
         int data;
         Node next;
 
-        Node(int data){
+        Node(int data) {
             this.data = data;
             this.next = null;
         }
@@ -17,10 +17,10 @@ public class Cll_Deletion {
     Node head = null;
     Node tail = null;
 
-    void creation(){
+    void creation() {
         int n;
         Scanner sc = new Scanner(System.in);
-        do{
+        do {
             System.out.println("Enter Data ::");
             n = sc.nextInt();
 
@@ -35,52 +35,63 @@ public class Cll_Deletion {
                 head = newNode;
                 tail.next = head;
             }
+
             System.out.println("Press 1 if you want to enter more data");
             n = sc.nextInt();
-        }while (n==1);
+        } while (n == 1);
     }
 
-    void traverser(){
+    void traverser() {
         Node temp = head;
-        if (head == null){
+        if (head == null) {
             System.out.println("Linked List Doesn't Exist");
-        }else {
+        } else {
             do {
                 System.out.println(temp.data);
                 temp = temp.next;
-            }
-            while (temp != tail);
+            } while (temp != head); // Fix: loop until it circles back to head
         }
     }
 
-    void deletion(){
-        int n,m,p;
+    void deletion() {
+        int n, m, p;
         Scanner sc = new Scanner(System.in);
 
         do {
-            if (head == null){
+            if (head == null) {
                 System.out.println("LL is empty");
-            }
-            else {
-                System.out.println("Enter 1 to delete the item from beginning. 2 to delete the item from the emd , 3 to delete the ite at specific position");
+            } else {
+                System.out.println("Enter 1 to delete the item from beginning. 2 to delete the item from the end , 3 to delete the item at specific position");
                 m = sc.nextInt();
-                switch (m){
+                switch (m) {
                     case 1:
-                        Node temp = head;
-                        temp = temp.next;
-                        head = temp;
-                        tail.next = head;
-                        break;
-                    case 2:
-                        Node temp1 = head;
-                        Node ptr = temp1.next;
-                        while (ptr.next != head) {
-                            temp1 = ptr;
-                            ptr = ptr.next;
+                        if (head == tail) {
+                            head = null;
+                            tail = null;
+                        } else {
+                            Node temp = head;
+                            temp = temp.next;
+                            head = temp;
+                            tail.next = head;
                         }
-                        temp1.next = head;
-                        tail = head;
                         break;
+
+                    case 2:
+                        if (head == tail) {
+                            head = null;
+                            tail = null;
+                        } else {
+                            Node temp1 = head;
+                            Node ptr = temp1.next;
+                            while (ptr.next != head) {
+                                temp1 = ptr;
+                                ptr = ptr.next;
+                            }
+                            temp1.next = head;
+                            tail = temp1;
+                        }
+                        break;
+
                     case 3:
                         System.out.println("Enter Data at Specific position");
                         p = sc.nextInt();
@@ -96,8 +107,7 @@ public class Cll_Deletion {
             }
             System.out.println("Do you want to delete more data. if yes press 1");
             n = sc.nextInt();
-        }while (n==1);
-
+        } while (n == 1);
     }
 
     public static void main(String[] args) {
